@@ -32,6 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          test -f requirements.txt && echo "✅ Found requirements.txt" || (echo "❌ Missing requirements.txt" && exit 1)
           pip install -r requirements.txt
 
       - name: Run the bot
