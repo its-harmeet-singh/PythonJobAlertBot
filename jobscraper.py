@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 from email_sender import send_job_template_email
 from config import DEFAULT_QUERY
 from datetime import datetime
-
-
+from openaiAPI import generate_updated_resume, update_existing_resume_docx
+from config import TEMPLATE
 
 load_dotenv()
 
@@ -34,10 +34,14 @@ def search_linkedin_jobs(query):
         title = job.get("title", "N/A")
         company = job.get("company_name", "N/A")
         location = job.get("location", "N/A")
+        description = job.get("description", "N/A")
 
         # Get link: prefer apply_options, fallback to share_link
         apply_options = job.get("apply_options", [])
         link = apply_options[0].get("link") if apply_options else job.get("share_link", "")
+
+        summary, tech = generate_updated_resume(title, company, description)
+        update_existing_resume_docx(summary, tech, title, company, TEMPLATE)    
 
         formatted_jobs.append({
             "title": title,
