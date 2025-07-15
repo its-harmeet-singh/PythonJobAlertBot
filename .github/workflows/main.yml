@@ -41,4 +41,5 @@ jobs:
           COURIER_EMAIL_TO: ${{ secrets.COURIER_EMAIL_TO }}
           COURIER_TEMPLATE_ID: ${{ secrets.COURIER_TEMPLATE_ID }}
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }} 
         run: python jobscraper.py
