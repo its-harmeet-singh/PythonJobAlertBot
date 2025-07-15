@@ -1,5 +1,5 @@
-courier==0.1.0.dev
+trycourier==6.2.1
 google_search_results==2.4.2
-openai==1.96.0
-python-dotenv==1.1.1
-python_docx==1.1.2
+openai==1.93.2
+python-dotenv==1.0.1
+python-docx==1.1.2

@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from courier.client import Courier
-import courier
 
 load_dotenv()
 
